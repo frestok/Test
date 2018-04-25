@@ -1,0 +1,35 @@
+#!/bin/sh
+inc=0
+umount -R /mnt/*
+rm -R /mnt/*
+for i in $(lsblk -dpno name| awk '!/loop|sr|nvme/'); do
+	echo $i
+	wipefs -a $i
+	parted -s $i mklabel msdos
+	parted -s $i mkpart primary ext4 0% 100%
+	inc=$((inc+1))
+	mkfs.ext4 -F $i"1"
+	mkdir /mnt/disk$inc
+	mount $i"1" /mnt/disk$inc
+done
+
+incnvme=0
+
+for a in $(lsblk -dpno name| awk '!/loop|sr|sd/'); do
+        echo $a
+        wipefs -a $a
+        parted -s $a mklabel msdos
+        parted -s $a mkpart primary ext4 0% 100%
+        incnvme=$((incnvme+1))
+        mkfs.ext4 -F $a"p1"
+        mkdir /mnt/nvme$incnvme
+	mount $a"p1" /mnt/nvme$incnvme
+done
+
+wget http://192.168.0.116/Files/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
+
+export EXPORT_RESULTS_HTML_EMAIL_TO=a.tanasiychuk@e-vision.by,a.karaliou@asbis.com
+
+phoronix-test-suite batch-benchmark pts/systemd-boot-total
+
+#umount -R /mnt/*
