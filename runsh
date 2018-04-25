@@ -32,6 +32,13 @@ wget https://raw.githubusercontent.com/frestok/Test/master/html_results_export.p
 
 export EXPORT_RESULTS_HTML_EMAIL_TO=a.tanasiychuk@e-vision.by,a.karaliou@asbis.com
 
-phoronix-test-suite batch-benchmark pts/systemd-boot-total
+#phoronix-test-suite batch-benchmark pts/systemd-boot-total
 
-#umount -R /mnt/*
+phoronix-test-suite batch-benchmark server
+
+umount -R /mnt/*
+
+for b in $(lsblk -dpno name| awk '!/loop|sr/'); do
+	echo $b
+	wipefs -a $b
+done
