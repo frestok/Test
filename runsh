@@ -26,7 +26,9 @@ for a in $(lsblk -dpno name| awk '!/loop|sr|sd/'); do
 	mount $a"p1" /mnt/nvme$incnvme
 done
 
-wget http://192.168.0.116/Files/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
+wget https://raw.githubusercontent.com/frestok/Test/master/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
+
+#wget http://192.168.0.116/Files/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
 
 export EXPORT_RESULTS_HTML_EMAIL_TO=a.tanasiychuk@e-vision.by,a.karaliou@asbis.com
 
