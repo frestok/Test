@@ -30,9 +30,12 @@ wget https://raw.githubusercontent.com/frestok/Test/master/html_results_export.p
 
 #wget http://192.168.0.116/Files/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
 
-export EXPORT_RESULTS_HTML_EMAIL_TO=a.tanasiychuk@e-vision.by,a.karaliou@asbis.com,d.martakov@asbis.com
+export EXPORT_RESULTS_HTML_EMAIL_TO=a.tanasiychuk@e-vision.by,a.karaliou@asbis.com
 
-phoronix-test-suite batch-benchmark pts/c-ray
+sleep 10
+phoronix-test-suite batch-benchmark pts/systemd-boot-total
+
+#phoronix-test-suite batch-benchmark pts/c-ray
 
 #phoronix-test-suite batch-benchmark server
 
