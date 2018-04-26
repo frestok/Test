@@ -79,20 +79,18 @@ class html_results_export extends pts_module_interface
 
             return '
 				<table style="background: black;  margin-bottom: 8px;  border: 1px solid;  border-collapse: collapse;  font-family: sans-serif; margin: 0 0 16px 5%; width: 90%">
-					<tr style="background: black;">							
+					<tr style="background: black; height: 18px;">							
 						<td style="font-size: 16px; color: white; padding:8px 8px 2px 8px;">'.$testProfile->get_title().'</td>						
 						<td rowspan="2" style="font-size: 16px; color: #2196F3; background: white; padding: 8px; text-align: center; width: 100px;">'.$testResultBufer->get_values_as_string().' '.$testProfile->get_result_scale().'</td>								
 					</tr>
-					<tr>
+					<tr style="height: 18px;">
 						<td style="font-size: 10px; color: white; max-width:500px; padding:2px 8px 8px 8px;">'.$data->get_arguments_description().'</td>
 					</tr>
 				</table>
-				<div style="height:16px;">&nbsp;</div>';
+				<div style="height:4px;">&nbsp;</div>';
         }, $result_file->get_result_objects());
 
-
         $html .= '<table style="border: 1px solid #808080;border-collapse: collapse;padding: 5px; font-size: 14px;color: #065695; font-family: sans-serif;margin: 0 0 16px 5%; width: 90%">'.self::$tableData.'</table><div style="height:16px;">&nbsp;</div>'.implode('', $tempData);
-
 
 		// Footer
 		$html .= '<hr style="margin: 32px 5% 8px;"/>				
