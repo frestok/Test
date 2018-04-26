@@ -36,11 +36,11 @@ phoronix-test-suite batch-benchmark pts/systemd-boot-total
 
 #phoronix-test-suite batch-benchmark server
 
-umount -R /mnt/*
+#umount -R /mnt/*
 
-for b in $(lsblk -dpno name| awk '!/loop|sr/'); do
-	echo $b
-	wipefs -a $b
-done
+#for b in $(lsblk -dpno name| awk '!/loop|sr/'); do
+#	echo $b
+#	wipefs -a $b
+#done
 
-sudo poweroff
+#sudo poweroff
