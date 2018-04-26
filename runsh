@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/frestok/Test/master/html_results_export.p
 
 export EXPORT_RESULTS_HTML_EMAIL_TO=a.tanasiychuk@e-vision.by,a.karaliou@asbis.com
 
-sleep 10
+sleep 30
 phoronix-test-suite batch-benchmark pts/systemd-boot-total
 
 #phoronix-test-suite batch-benchmark pts/c-ray
