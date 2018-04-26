@@ -81,11 +81,11 @@ class html_results_export extends pts_module_interface
 					<tr style="border: 1px solid #ccc;">							
 						<td style="width:100px;  font-size: 14px;  border: 1px solid #ccc;  padding:8px;">'.$testProfile->get_title().'</td>			
 						<td style="font-size: 12px; max-width:500px;  border: 1px solid #ccc;  padding:8px;">'.$data->get_arguments_description().'</td>			
-						<td style="font-size: 16px; color: #2196F3; background: white; padding: 8px;width: 80px;">'.$testResultBufer->get_values_as_string().' '.$testProfile->get_result_scale().'</td>								
+						<td style="font-size: 16px; color: #2196F3; background: white; padding: 8px;width: 120px; border: 1px solid #ccc;">'.$testResultBufer->get_values_as_string().' '.$testProfile->get_result_scale().'</td>								
 					</tr>';
         }, $result_file->get_result_objects());
 
-        $html .= '<table style="border: 1px solid #808080;border-collapse: collapse;padding: 5px; font-size: 14px;color: #065695; font-family: sans-serif;margin: 0 0 16px 5%; width: 90%">'.self::$tableData.'</table><div style="height:16px;">&nbsp;</div><div style="margin-left:5%; color: #808080; font-size:12px;">Test results:</div><table style="margin: 0 0 16px 5%; width: 90%;  border: 1px solid;  border-collapse: collapse;  font-family:sans-serif;"><thead><td style="color:#808080; font-size:12px; text-transform:uppercase;border: 1px solid #ccc;">Test name</td><td style="color:#808080; font-size:12px; text-transform:uppercase;border: 1px solid #ccc;">Arguments</td><td style="color:#808080; font-size:12px; text-transform:uppercase;border: 1px solid #ccc;">Value</td></thead><tbody>'.implode('', $tempData).'</tbody></table>';
+        $html .= '<table style="border: 1px solid #808080;border-collapse: collapse;padding: 5px; font-size: 14px;color: #065695; font-family: sans-serif;margin: 0 0 16px 5%; width: 90%">'.self::$tableData.'</table><div style="height:16px;">&nbsp;</div><div style="margin-left:5%; color: #808080; font-size:12px; font-family: sans-serif;">Test results:</div><table style="margin: 0 0 16px 5%; width: 90%;  border: 1px solid;  border-collapse: collapse;  font-family:sans-serif;"><thead><td style="color:#808080; font-size:12px; text-transform:uppercase;border: 1px solid #ccc;padding:8px;">Test name</td><td style="color:#808080; font-size:12px; text-transform:uppercase;border: 1px solid #ccc;padding:8px;">Arguments</td><td style="color:#808080; font-size:12px; text-transform:uppercase;border: 1px solid #ccc;padding:8px;">Value</td></thead><tbody>'.implode('', $tempData).'</tbody></table>';
 
 		// Footer
 		$html .= '<hr style="margin: 32px 5% 8px;"/>				
