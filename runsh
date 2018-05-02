@@ -54,7 +54,9 @@ phoronix-test-suite batch-benchmark pts/scimark2
 
 #phoronix-test-suite batch-benchmark server
 
+sleep 10
 umount -R /mnt/*
+sleep 10
 
 for b in $(lsblk -dpno name| awk '!/loop|sr/'); do
 	echo $b
