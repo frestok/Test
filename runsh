@@ -2,7 +2,9 @@
 apt-get update
 inc=0
 umount -R /mnt/*
+sleep 5
 rm -R /mnt/*
+sleep 5
 for i in $(lsblk -dpno name| awk '!/loop|sr|nvme/'); do
 	echo $i
 	sleep 1
