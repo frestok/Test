@@ -46,4 +46,4 @@ for b in $(lsblk -dpno name| awk '!/loop|sr/'); do
 	wipefs -a $b
 done
 
-sudo poweroff
+#sudo poweroff
