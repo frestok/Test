@@ -53,9 +53,9 @@ export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com
 
 #phoronix-test-suite batch-benchmark pts/systemd-boot-total
 
-#phoronix-test-suite batch-benchmark pts/scimark2
+phoronix-test-suite batch-benchmark pts/scimark2
 
-phoronix-test-suite batch-benchmark server
+#phoronix-test-suite batch-benchmark server
 
 sleep 10
 umount -R /mnt/*
@@ -66,4 +66,4 @@ for b in $(lsblk -dpn | awk '/disk/ {print $(NR01)}' | awk '!/cdrom/ {print $1}'
 	wipefs -a $b
 done
 
-sudo poweroff
+#sudo poweroff
