@@ -1,4 +1,5 @@
 #!/bin/sh
+apt-get update
 inc=0
 umount -R /mnt/*
 rm -R /mnt/*
