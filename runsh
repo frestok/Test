@@ -5,7 +5,8 @@ umount -R /mnt/*
 sleep 5
 rm -R /mnt/*
 sleep 5
-for i in $(lsblk -dpno name| awk '!/loop|sr|nvme/'); do
+#for i in $(lsblk -dpno name| awk '!/loop|sr|nvme/'); do
+for i in $(lsblk -dpno name | awk '/disk/ {print $(NR01)}' | awk '!/cdrom/ {print $1}'; do
 	echo $i
 	sleep 1
 	wipefs -a $i
