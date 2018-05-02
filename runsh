@@ -1,5 +1,5 @@
 #!/bin/sh
-#apt-get update
+apt-get update
 inc=0
 umount -R /mnt/*
 sleep 5
