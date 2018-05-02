@@ -5,12 +5,19 @@ umount -R /mnt/*
 rm -R /mnt/*
 for i in $(lsblk -dpno name| awk '!/loop|sr|nvme/'); do
 	echo $i
+	sleep 1
 	wipefs -a $i
+	sleep 1
 	parted -s $i mklabel msdos
+	sleep 1
 	parted -s $i mkpart primary ext4 0% 100%
+	sleep 1
 	inc=$((inc+1))
+	sleep 1
 	mkfs.ext4 -F $i"1"
+	sleep 1
 	mkdir /mnt/disk$inc
+	sleep 1
 	mount $i"1" /mnt/disk$inc
 done
 
@@ -18,12 +25,19 @@ incnvme=0
 
 for a in $(lsblk -dpno name| awk '!/loop|sr|sd/'); do
         echo $a
+	sleep 1
         wipefs -a $a
+	sleep 1
         parted -s $a mklabel msdos
+	sleep 1
         parted -s $a mkpart primary ext4 0% 100%
+	sleep 1
         incnvme=$((incnvme+1))
+	sleep 1
         mkfs.ext4 -F $a"p1"
+	sleep 1
         mkdir /mnt/nvme$incnvme
+	sleep 1
 	mount $a"p1" /mnt/nvme$incnvme
 done
 
@@ -31,7 +45,7 @@ wget https://raw.githubusercontent.com/frestok/Test/master/html_results_export_t
 
 #wget http://192.168.0.116/Files/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
 
-export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com,a.tanasiychuk@e-vision.by
+export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com
 
 
 #phoronix-test-suite batch-benchmark pts/systemd-boot-total
