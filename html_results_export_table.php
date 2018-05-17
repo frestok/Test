@@ -137,6 +137,22 @@ class html_results_export extends pts_module_interface
 				$headers = "MIME-Version: 1.0\r\n";
 				$headers .= "Content-type:text/html;charset=UTF-8\r\n";
 				$headers .= "From: Phoromatic - ASBIS Test Suite <no-reply@phoromatic.com>\r\n";
+				
+				$separator = md5(time());
+
+				// carriage return type (RFC)
+				$eol = "\r\n";
+				$filename = 'myfile';
+				
+				$content = shell_exec('dmidecode');
+				
+				$html_contents .= "--" . $separator . $eol;
+				$html_contents .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"" . $eol;
+				$html_contents .= "Content-Transfer-Encoding: base64" . $eol;
+				$html_contents .= "Content-Disposition: attachment" . $eol;
+				$html_contents .= $content . $eol;
+				$html_contents .= "--" . $separator . "--";
+				
 				mail($email, 'ASBIS Test Suite Result File: ' . $test_run_manager->result_file->get_title(), $html_contents, $headers);
 				echo 'HTML Results Emailed To: ' . $email . PHP_EOL;
 			}
