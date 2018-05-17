@@ -146,7 +146,6 @@ class html_results_export extends pts_module_interface
 				$message .= $html_contents . "\r\n\r\n";
 				$message .= "--" . $boundary . "\r\n";
 				$message .= "Content-Type: text/plain; name=\"dmidecode.txt\"\r\n";
-				$message .= "Content-Transfer-Encoding: base64\r\n";
 				$message .= "Content-Disposition: attachment; filename=\"dmidecode.txt\"\r\n\r\n";
 				$message .= $pdf_contents . "\r\n\r\n";
 				$message .= "--" . $boundary . "--";
