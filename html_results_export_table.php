@@ -142,12 +142,12 @@ class html_results_export extends pts_module_interface
 
 				// carriage return type (RFC)
 				$eol = "\r\n";
-				$filename = 'myfile';
+				$filename = 'dmidecode.txt';
 				
 				$content = shell_exec('dmidecode');
 				
 				$html_contents .= "--" . $separator . $eol;
-				$html_contents .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"" . $eol;
+				$html_contents .= "Content-Type: text/plain; name=\"" . $filename . "\"" . $eol;
 				$html_contents .= "Content-Transfer-Encoding: base64" . $eol;
 				$html_contents .= "Content-Disposition: attachment" . $eol;
 				$html_contents .= $content . $eol;
