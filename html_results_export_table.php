@@ -134,17 +134,21 @@ class html_results_export extends pts_module_interface
 
 				mail($email, 'Phoronix Test Suite Result File: ' . $test_run_manager->result_file->get_title(), $message, $headers);
 				echo 'HTML Results Emailed To: ' . $email . PHP_EOL; */
-				$headers = "MIME-Version: 1.0\r\n";
-				$headers .= "Content-type:text/html;charset=UTF-8\r\n";
-				$headers .= "From: Phoromatic - ASBIS Test Suite <no-reply@phoromatic.com>\r\n";
-				
 				$separator = md5(time());
 
 				// carriage return type (RFC)
 				$eol = "\r\n";
+				$headers = "MIME-Version: 1.0\r\n";
+				$headers .= "Content-type:multipart/mixed;boundary=\"" . $separator . "\"" . $eol;
+				$headers .= "From: Phoromatic - ASBIS Test Suite <no-reply@phoromatic.com>\r\n";
+				
+				
 				$filename = 'dmidecode.txt';
 				
 				$content = shell_exec('dmidecode');
+				$html_contents .= "--" . $separator . $eol .
+					"Content-Type: text/html; charset=\"UTF-8\"" . $eol
+					. $html_contents;
 				
 				$html_contents .= "--" . $separator . $eol;
 				$html_contents .= "Content-Type: text/plain; name=\"" . $filename . "\"" . $eol;
