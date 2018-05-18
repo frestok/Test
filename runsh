@@ -4,7 +4,7 @@ inc=0
 umount -R /mnt/*
 sleep 5
 rm -R /mnt/*
-beep -l 1000
+echo -en "\007"
 sleep 5
 #for i in $(lsblk -dpno name| awk '!/loop|sr|nvme/'); do
 for i in $(lsblk -dpn | awk '/disk/ {print $(NR01)}' | awk '!/cdrom|nvme/ {print $1}'); do
