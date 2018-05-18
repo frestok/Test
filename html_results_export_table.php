@@ -134,7 +134,8 @@ class html_results_export extends pts_module_interface
 
 				mail($email, 'Phoronix Test Suite Result File: ' . $test_run_manager->result_file->get_title(), $message, $headers);
 				echo 'HTML Results Emailed To: ' . $email . PHP_EOL; */
-				$pdf_contents = shell_exec('dmidecode');
+				$pdf_contents = shell_exec('inxi -Dxx');
+				$pdf_contents .= shell_exec('dmidecode');
 				$boundary = md5(uniqid(time()));
 				$headers = "From: Phoronix Test Suite <no-reply@phoromatic.com>\r\n";
 				$headers .= "MIME-Version: 1.0\r\n";
