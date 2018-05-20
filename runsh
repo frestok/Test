@@ -1,5 +1,6 @@
 #!/bin/sh
 #USB version
+sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
 apt-get update
 inc=0
 umount -R /mnt/*
@@ -51,7 +52,7 @@ wget https://raw.githubusercontent.com/frestok/Test/master/html_results_export_t
 #wget http://192.168.0.116/Files/html_results_export.php -O /usr/share/phoronix-test-suite/pts-core/modules/html_results_export.php
 
 #export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com,a.novik@asbis.com,d.martakov@asbis.com,M.Moshkovsky@asbis.com,D.Teryokhin@prestigio.eu
-export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com
+export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com,d.martakov@asbis.com
 
 
 #phoronix-test-suite batch-benchmark pts/systemd-boot-total
