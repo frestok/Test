@@ -1,6 +1,7 @@
 #!/bin/sh
 #USB version
 sudo date -s "$(wget -qSO- --max-redirect=0 google.com 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
+sleep 20
 apt-get update
 inc=0
 umount -R /mnt/*
