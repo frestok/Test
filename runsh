@@ -58,7 +58,7 @@ export EXPORT_RESULTS_HTML_EMAIL_TO=a.karaliou@asbis.com,d.martakov@asbis.com
 
 #phoronix-test-suite batch-benchmark pts/systemd-boot-total
 
-№phoronix-test-suite batch-benchmark pts/scimark2
+#phoronix-test-suite batch-benchmark pts/scimark2
 
 phoronix-test-suite batch-benchmark server
 
