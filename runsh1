@@ -71,4 +71,5 @@ for b in $(lsblk -dpn | awk '/disk/ {print $(NR01)}' | awk '!/cdrom/ {print $1}'
 	wipefs -a $b
 done
 
+sleep 480
 sudo poweroff
